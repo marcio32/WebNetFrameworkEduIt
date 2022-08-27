@@ -15,12 +15,12 @@ namespace WebFinal
             {
                 if (Session["Token"].ToString() == "")
                 {
-                    Response.Redirect("~/Default.aspx");
+                    Response.Redirect("~/Default.aspx", false);
                 }
             }
             catch (Exception ex)
             {
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Default.aspx", false);
             }
 
         }

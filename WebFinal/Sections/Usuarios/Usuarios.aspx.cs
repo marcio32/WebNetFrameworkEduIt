@@ -22,27 +22,29 @@ namespace WebFinal
                 {
                     if (String.IsNullOrEmpty((string)Session["Token"]))
                     {
-                        Response.Redirect("~/Default.aspx");
+                        Response.Redirect("~/Default.aspx", false);
+                    }else if (Session["Rol"].ToString() != "Administrador")
+                    {
+                        Response.Redirect("~/MiProyecto.aspx", false);
                     }
                     else
                     {
                         token.Value = Session["Token"].ToString();
-                    }
+                        var rolService = new RolService();
+                        var roles = rolService.ObtenerRoles(token.Value);
 
-                    var rolService = new RolService();
-                    var roles = rolService.ObtenerRoles(token.Value);
+                        var listaRoles = JsonConvert.DeserializeObject<List<Roles>>(roles.ToString());
 
-                    var listaRoles = JsonConvert.DeserializeObject<List<Roles>>(roles.ToString());
-
-                    foreach (var x in listaRoles)
-                    {
-                        RolDrop.Items.Add(new ListItem(x.Nombre, x.Id.ToString()));
+                        foreach (var x in listaRoles)
+                        {
+                            RolDrop.Items.Add(new ListItem(x.Nombre, x.Id.ToString()));
+                        }
                     }
                     
                 }
                 catch (Exception ex)
                 {
-                    Response.Redirect("~/Default.aspx");
+                    Response.Redirect("~/Default.aspx", false);
                 }
             }
 
