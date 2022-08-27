@@ -1,5 +1,6 @@
 ﻿using Application.Helpers;
 using Application.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,9 @@ namespace WebFinal
             {
                 if (String.IsNullOrEmpty((string)Session["Token"]))
                 {
-                    Response.Redirect("~/Default.aspx");
+                    Response.Redirect("~/Default.aspx", false);
+                }else if (Session["Rol"].ToString() != "Administrador"){
+                    Response.Redirect("~/MiProyecto.aspx", false);
                 }
                 else
                 {
@@ -27,7 +30,7 @@ namespace WebFinal
             }
             catch (Exception ex)
             {
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Default.aspx", false);
             }
 
         }

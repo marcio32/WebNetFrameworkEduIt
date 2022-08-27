@@ -56,9 +56,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/MiProyecto">Mi Proyecto</a></li>
-                        <li><a runat="server" href="~/Sections/Usuarios/Usuarios">Usuarios</a></li>
-                        <li><a runat="server" href="~/Sections/Productos/AdministrarProductos">Productos</a></li>
-                        <li><a runat="server" href="~/Sections/Roles/AdministrarRoles">Roles</a></li>
+                        <li><asp:LinkButton ID="ProductosBtn" runat="server" OnClick="ProductosBtn_Click" >Productos</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="UsuariosBtn" runat="server" OnClick="UsuariosBtn_Click" >Usuarios</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="RolesBtn" runat="server" OnClick="RolesBtn_Click" >Roles</asp:LinkButton></li>
                         <li><asp:LinkButton ID="CerrarSesionBtn" runat="server" OnClick="CerrarSesionBtn_Click">Cerrar Sesion</asp:LinkButton></li>
                     </ul>
                 </div>

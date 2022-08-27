@@ -29,7 +29,7 @@ namespace WebFinal.Service
         public object ObtenerRoles(string token)
         {
             string ControllerMethodName = "Roles/ObtenerRoles";
-            return base.GetToApi(ControllerMethodName, token);
+            return base.GetToApi(ControllerMethodName, "", token);
         }
     }
 }

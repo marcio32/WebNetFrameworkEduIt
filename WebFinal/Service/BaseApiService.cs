@@ -14,11 +14,11 @@ namespace WebFinal.Service
         private string apiUrl { get { return ConfigurationManager.AppSettings["apiUrl"]; } }
 
 
-        protected string GetToApi(string controllerMethodURL, string token)
+        protected string GetToApi(string controllerMethodURL, string mail, string token)
         {
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
-            string url = string.Format("{0}/{1}", apiUrl, controllerMethodURL);
+            string url = string.Format("{0}/{1}/?mail={2}", apiUrl, controllerMethodURL, mail);
 
             httpClient.DefaultRequestHeaders.Add("Authorization", token);
             response = httpClient.GetAsync(url).Result;

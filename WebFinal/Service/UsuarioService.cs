@@ -25,5 +25,11 @@ namespace WebFinal.Service
             string ControllerMethodName = "Usuarios/EliminarUsuario";
             return base.DeleteToApi(ControllerMethodName, id, token);
         }
+
+        public object ObtenerUsuario(string mail, string token)
+        {
+            string ControllerMethodName = "Usuarios/ObtenerUsuario";
+            return base.GetToApi(ControllerMethodName, mail, token);
+        }
     }
 }
