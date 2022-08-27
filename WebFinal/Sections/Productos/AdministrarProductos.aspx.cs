@@ -18,7 +18,7 @@ namespace WebFinal
             {
                 if (String.IsNullOrEmpty((string)Session["Token"]))
                 {
-                    Response.Redirect("~/Default.aspx");
+                    Response.Redirect("~/Default.aspx", false);
                 }
                 else
                 {
@@ -27,7 +27,7 @@ namespace WebFinal
             }
             catch (Exception ex)
             {
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Default.aspx", false);
             }
 
         }

@@ -36,6 +36,14 @@ namespace Api.Controllers
             return Ok(usu);
         }
 
+        [HttpGet]
+        [Route("ObtenerUsuario")]
+        public IHttpActionResult ObtenerUsuario(string mail)
+        {
+            var usu = db.Usuarios.AsNoTracking().Where(x => x.Activo == true && x.Mail == mail).ToList();
+            return Ok(usu);
+        }
+
         [HttpPost]
         [Route("GuardarUsuario")]
         public IHttpActionResult GuardarUsuario([Bind(Include = "Id, Nombre, Apellido, Fecha_Nacimiento, Rol")] Usuarios usuario)

@@ -76,7 +76,7 @@ namespace WebFinal
             {
                 Session["Codigo"] = "true";
                 Session["Mail"] = EmailText.Text;
-                Response.Redirect("RecuperarCuentaFin.aspx");
+                Response.Redirect("RecuperarCuentaFin.aspx", false);
             }
             else
             {

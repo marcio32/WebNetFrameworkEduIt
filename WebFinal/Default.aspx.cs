@@ -1,4 +1,5 @@
 ﻿using Application.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace WebFinal
             if(Request.Cookies["Token"] != null)
             {
                 Session["Token"] = Request.Cookies["Token"].Value;
-                Response.Redirect("~/Sections/Usuarios/Usuarios");
+                Response.Redirect("~/MiProyecto", false);
             }
             else
             {
@@ -45,7 +46,11 @@ namespace WebFinal
 
             if(respuesta != "")
             {
-                Response.Redirect("~/Sections/Usuarios/Usuarios");
+                var usuarioService = new UsuarioService();
+               
+                var usuarioRol = JsonConvert.DeserializeObject<List<Usuarios>>(usuarioService.ObtenerUsuario(txtEmail.Text, respuesta.Trim().Replace(@"\", "").Replace(@"""", "")).ToString());
+                Session["Rol"] = usuarioRol.First().Roles.Nombre;
+                Response.Redirect("~/MiProyecto", false);
             }
             else
             {
