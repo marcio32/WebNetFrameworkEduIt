@@ -4,8 +4,8 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -14,14 +14,12 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
     <link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
-
-
 </head>
 <body>
     <form runat="server">
@@ -57,10 +55,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/MiProyecto">Mi Proyecto</a></li>
                         <li><a runat="server" href="~/Sections/Usuarios/Usuarios">Usuarios</a></li>
                         <li><a runat="server" href="~/Sections/Productos/AdministrarProductos">Productos</a></li>
                         <li><a runat="server" href="~/Sections/Roles/AdministrarRoles">Roles</a></li>
-                        <li><a runat="server" href="~/MiProyecto">Mi Proyecto</a></li>
                         <li><asp:LinkButton ID="CerrarSesionBtn" runat="server" OnClick="CerrarSesionBtn_Click">Cerrar Sesion</asp:LinkButton></li>
                     </ul>
                 </div>
